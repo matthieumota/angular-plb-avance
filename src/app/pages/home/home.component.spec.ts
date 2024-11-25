@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { HousingService } from '../../services/housing.service';
@@ -19,16 +19,21 @@ describe('HomeComponent', () => {
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges()
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display houses', () => {
-    expect(component.houses.length).toBe(5)
+  it('should display 4 random houses', waitForAsync(() => {
+    expect(component.houses.length).toBe(4)
     const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelectorAll('h2').length).toBe(5)
-  });
+    expect(compiled.querySelectorAll('h2').length).toBe(4)
+    const service = TestBed.inject(HousingService)
+
+    service.all().subscribe(houses => {
+      expect(component.houses).not.toBe(houses.slice(0, 4))
+    })
+  }));
 });

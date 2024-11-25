@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { FakeHousingService } from '../../services/fake-housing.service';
 import { House } from '../../models/house';
-import { NgFor } from '@angular/common';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,9 @@ export class HomeComponent implements OnInit {
   constructor(private housing: HousingService) {}
 
   ngOnInit(): void {
-    this.housing.all().subscribe(houses => {
+    this.housing.all().pipe(
+      map(houses => [...houses].sort(() => Math.random() - 0.5).slice(0, 4)),
+    ).subscribe(houses => {
       this.houses = houses
     })
   }
