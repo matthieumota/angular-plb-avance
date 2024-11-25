@@ -1,7 +1,6 @@
 <div>
   @for (house of houses; track house.id) {
-    <div>
-      <h2>{{ house.name }}</h2>
-    </div>
+    <input type="text" [(ngModel)]="house.name">
+    <app-house-card [house]="house" />
   }
 </div>

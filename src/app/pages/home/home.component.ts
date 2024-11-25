@@ -3,10 +3,11 @@ import { HousingService } from '../../services/housing.service';
 import { FakeHousingService } from '../../services/fake-housing.service';
 import { House } from '../../models/house';
 import { map } from 'rxjs';
+import { HouseCardComponent } from "../../components/house-card/house-card.component";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [HouseCardComponent],
   providers: [
     // { provide: HousingService, useExisting: FakeHousingService }
   ],
