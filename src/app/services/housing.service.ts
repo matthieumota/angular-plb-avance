@@ -12,4 +12,8 @@ export class HousingService {
   all(): Observable<House[]> {
     return this.http.get<House[]>('http://localhost:3000/houses')
   }
+
+  get(id: number): Observable<House> {
+    return this.http.get<House>(`http://localhost:3000/houses/${id}`)
+  }
 }

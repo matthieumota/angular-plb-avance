@@ -6,6 +6,7 @@
     [imageAlt]="house.name | test: '-- ' : ' __' : 10"
     [size]="'SM'"
     [hasFooter]="true"
+    [routePath]="['/annonce', house.id.toString()]"
   >
     <ng-content footer>
       <p>
