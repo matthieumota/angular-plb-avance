@@ -1,9 +1,9 @@
 <div>
   <dsfr-card
-    [heading]="house.name | test: '-- ' : ' __' : 10"
+    [heading]="house.name"
     [detail]="'à ' + house.city"
     [imagePath]="house.photo"
-    [imageAlt]="house.name"
+    [imageAlt]="house.name | test: '-- ' : ' __' : 10"
     [size]="'SM'"
     [hasFooter]="true"
   >

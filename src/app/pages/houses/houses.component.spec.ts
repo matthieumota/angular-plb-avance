@@ -29,8 +29,8 @@ describe('HousesComponent', () => {
   it('should display houses', () => {
     expect(component.houses.length).toBe(5)
     const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelectorAll('h2').length).toBe(5)
-    const names = Array.from(compiled.querySelectorAll('h2')).map(el => el.textContent)
+    expect(compiled.querySelectorAll('h3').length).toBe(5)
+    const names = Array.from(compiled.querySelectorAll('h3')).map(el => el.textContent)
     expect(names).toEqual(['Charming Studio', 'Modern Loft', 'Cozy Cottage', 'Luxury Villa', 'Seaside Apartment'])
   });
 });

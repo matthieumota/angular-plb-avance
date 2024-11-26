@@ -29,7 +29,7 @@ describe('HomeComponent', () => {
   it('should display 4 random houses', waitForAsync(() => {
     expect(component.houses.length).toBe(4)
     const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelectorAll('h2').length).toBe(4)
+    expect(compiled.querySelectorAll('h3').length).toBe(4)
     const service = TestBed.inject(HousingService)
 
     service.all().subscribe(houses => {
