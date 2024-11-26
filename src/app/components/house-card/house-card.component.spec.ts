@@ -27,7 +27,7 @@ describe('HouseCardComponent', () => {
 
   it('should console log', fakeAsync(() => {
     spyOn(console, 'log');
-    fixture.componentRef.setInput('house', {});
+    fixture.componentRef.setInput('house', { name: 'Fiorella' });
     fixture.detectChanges();
     tick(1000);
 
