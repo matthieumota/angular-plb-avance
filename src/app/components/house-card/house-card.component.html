@@ -5,13 +5,15 @@
     [imagePath]="house.photo"
     [imageAlt]="house.name"
     [size]="'SM'"
+    [hasFooter]="true"
   >
+    <ng-content footer>
+      <p>{{ house.rental }} / mois ou {{ house.price }}</p>
+      <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+
+      <dsfr-button label="Acheter" />
+
+      <p>{{ random() }}</p>
+    </ng-content>
   </dsfr-card>
-
-  <p>{{ house.rental }} / mois ou {{ house.price }}</p>
-  <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
-
-  <dsfr-button label="Acheter" />
-
-  <p>{{ random() }}</p>
 </div>

@@ -1,9 +1,11 @@
-<h1 (click)="title = 'Immobiliare 2'">{{ title }}</h1>
+<div class="fr-container">
+  <h1 (click)="title = 'Immobiliare 2'">{{ title }}</h1>
 
-<nav>
-  <a [routerLink]="['/']">Accueil</a>
-  <a [routerLink]="['/annonces']">Annonces</a>
-  <a [routerLink]="['/panier']">Panier</a>
-</nav>
+  <nav>
+    <a [routerLink]="['/']">Accueil</a>
+    <a [routerLink]="['/annonces']">Annonces</a>
+    <a [routerLink]="['/panier']">Panier</a>
+  </nav>
 
-<router-outlet />
+  <router-outlet />
+</div>
