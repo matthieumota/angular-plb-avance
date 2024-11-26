@@ -1,6 +1,6 @@
 <div>
   <dsfr-card
-    [heading]="house.name | test:'-- ':' __':10"
+    [heading]="house.name | test: '-- ' : ' __' : 10"
     [detail]="'à ' + house.city"
     [imagePath]="house.photo"
     [imageAlt]="house.name"
@@ -8,7 +8,10 @@
     [hasFooter]="true"
   >
     <ng-content footer>
-      <p>{{ house.rental | currency:'EUR' }} / mois ou {{ house.price | currency:'EUR' }}</p>
+      <p>
+        {{ house.rental | tax | currency: 'EUR' }} / mois ou
+        {{ house.price | tax | currency: 'EUR' }}
+      </p>
       <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
 
       <dsfr-button label="Acheter" />
