@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { House } from '../../models/house';
+import { DsfrButtonModule, DsfrCardModule } from '@edugouvfr/ngx-dsfr';
 
 @Component({
   selector: 'app-house-card',
-  imports: [],
+  imports: [DsfrButtonModule, DsfrCardModule],
   templateUrl: './house-card.component.html',
   styleUrl: './house-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

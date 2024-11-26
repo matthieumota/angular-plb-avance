@@ -1,4 +1,17 @@
 <div>
-  <h2>{{ house.name }}</h2>
+  <dsfr-card
+    [heading]="house.name"
+    [detail]="'à ' + house.city"
+    [imagePath]="house.photo"
+    [imageAlt]="house.name"
+    [size]="'SM'"
+  >
+  </dsfr-card>
+
+  <p>{{ house.rental }} / mois ou {{ house.price }}</p>
+  <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+
+  <dsfr-button label="Acheter" />
+
   <p>{{ random() }}</p>
 </div>

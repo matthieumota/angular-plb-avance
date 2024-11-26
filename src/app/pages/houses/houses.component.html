@@ -1,6 +1,6 @@
-<div>
+<div class="fr-grid-row fr-grid-row--gutters">
   @for (house of houses; track house.id) {
-    <input type="text" [(ngModel)]="house.name">
-    <app-house-card [house]="house" />
+    <!-- <input type="text" [(ngModel)]="house.name"> -->
+    <app-house-card [house]="house" class="fr-col-3" />
   }
 </div>

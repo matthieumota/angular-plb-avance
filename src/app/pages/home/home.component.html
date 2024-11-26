@@ -1,9 +1,9 @@
-<div *ngIf="true">
+<div *ngIf="true" class="fr-grid-row fr-grid-row--gutters">
   <!-- <div *ngFor="let house of houses">
     {{ house.name }}
   </div> -->
 
   @for (house of houses; track house.id) {
-    <app-house-card [house]="house" />
+    <app-house-card [house]="house" class="fr-col-3" />
   }
 </div>
