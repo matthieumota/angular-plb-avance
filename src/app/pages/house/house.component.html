@@ -1,3 +1,20 @@
 <div>
-  <a href="">Retour aux annonces</a>
+  <a routerLink="/annonces">Retour aux annonces</a>
+
+  @if (loading) {
+    <div>Chargement...</div>
+  } @else if (house) {
+    <div class="fr-grid-row fr-grid-row--gutters" style="margin-top: 20px;">
+      <div class="fr-col-6">
+        <p>
+          {{ house.rental | tax | currency: 'EUR' }} / mois ou
+          {{ house.price | tax | currency: 'EUR' }}
+        </p>
+        <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+      </div>
+      <div class="fr-col-6">
+        <img [src]="house.photo" [alt]="house.name" />
+      </div>
+    </div>
+  }
 </div>
