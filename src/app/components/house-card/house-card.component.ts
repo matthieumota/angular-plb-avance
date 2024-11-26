@@ -16,6 +16,8 @@ export class HouseCardComponent {
 
   ngOnInit() {
     this.name = this.house.name
+
+    setTimeout(() => console.log('time'), 1000)
   }
 
   random() {

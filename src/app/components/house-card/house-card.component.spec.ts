@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { HouseCardComponent } from './house-card.component';
 import { FakeHousingService } from '../../services/fake-housing.service';
@@ -24,4 +24,13 @@ describe('HouseCardComponent', () => {
       expect(component.house.name).toBe('Charming Studio');
     });
   }));
+
+  it('should console log', fakeAsync(() => {
+    spyOn(console, 'log');
+    fixture.componentRef.setInput('house', {});
+    fixture.detectChanges();
+    tick(1000);
+
+    expect(console.log).toHaveBeenCalledOnceWith('time')
+  }))
 });
