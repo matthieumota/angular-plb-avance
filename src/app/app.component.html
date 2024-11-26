@@ -1,11 +1,19 @@
 <div class="fr-container">
-  <h1 (click)="title = 'Immobiliare 2'">{{ title }}</h1>
-
-  <nav>
-    <a [routerLink]="['/']">Accueil</a>
-    <a [routerLink]="['/annonces']">Annonces</a>
-    <a [routerLink]="['/panier']">Panier</a>
-  </nav>
+  <div style="margin-bottom: 20px;">
+    <dsfr-header
+      [logoLabel]="title"
+      [logoLink]="'/'"
+      (click)="title = 'Immobiliare 2'"
+    >
+      <ng-template #headerTools>
+        <nav style="display: flex; gap: 20px">
+          <a [routerLink]="['/']">Accueil</a>
+          <a [routerLink]="['/annonces']">Annonces</a>
+          <a [routerLink]="['/panier']">Panier</a>
+        </nav>
+      </ng-template>
+    </dsfr-header>
+  </div>
 
   <router-outlet />
 </div>
