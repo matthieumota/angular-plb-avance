@@ -32,6 +32,8 @@
               }
             ],
             "styles": [
+              "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.css",
+              "./node_modules/@gouvfr/dsfr/dist/utility/utility.css",
               "src/styles.scss"
             ],
             "scripts": []
