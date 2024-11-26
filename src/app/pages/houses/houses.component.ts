@@ -1,12 +1,11 @@
 import { Component, NgZone } from '@angular/core';
 import { House } from '../../models/house';
 import { HousingService } from '../../services/housing.service';
-import { HouseCardComponent } from "../../components/house-card/house-card.component";
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../modules/shared/shared.module';
 
 @Component({
   selector: 'app-houses',
-  imports: [HouseCardComponent, FormsModule],
+  imports: [SharedModule],
   templateUrl: './houses.component.html',
   styleUrl: './houses.component.scss'
 })

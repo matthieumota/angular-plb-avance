@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
-import { FakeHousingService } from '../../services/fake-housing.service';
 import { House } from '../../models/house';
 import { map } from 'rxjs';
-import { HouseCardComponent } from "../../components/house-card/house-card.component";
+import { SharedModule } from '../../modules/shared/shared.module';
 
 @Component({
   selector: 'app-home',
-  imports: [HouseCardComponent],
+  imports: [SharedModule],
   providers: [
     // { provide: HousingService, useExisting: FakeHousingService }
   ],
