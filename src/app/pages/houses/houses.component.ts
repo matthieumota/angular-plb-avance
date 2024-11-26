@@ -19,7 +19,7 @@ export class HousesComponent {
 
     this.zone.runOutsideAngular(() => {
       window.addEventListener('scroll', (event) => {
-        if (window.scrollY + window.innerHeight > document.body.scrollHeight) {
+        if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
           console.log(event)
           this.zone.run(() => this.houses = this.houses.concat(this.houses))
         }
