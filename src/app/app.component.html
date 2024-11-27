@@ -11,6 +11,8 @@
           <a [routerLink]="['/annonces']">Annonces</a>
           <a [routerLink]="['/panier']">Panier</a>
         </nav>
+
+        {{ cart$ | async | json }}
       </ng-template>
     </dsfr-header>
   </div>
