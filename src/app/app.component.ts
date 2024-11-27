@@ -4,6 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { DsfrHeaderModule } from '@edugouvfr/ngx-dsfr';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AppState, CartItem } from './stores/cart.reducer';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'Immobiliare';
-  cart$!: Observable<any[]>
+  cart$!: Observable<CartItem[]>
 
-  constructor(private store: Store<{ cart: any[] }>) {
+  constructor(private store: Store<AppState>) {
     this.cart$ = this.store.select('cart')
   }
 }

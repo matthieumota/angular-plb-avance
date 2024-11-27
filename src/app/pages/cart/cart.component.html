@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<ul>
+  @for (item of cart$ | async; track item.name) {
+    <li>
+      {{ item.name }} - {{ item.price }}€ x{{ item.quantity }}
+    </li>
+  }
+</ul>
