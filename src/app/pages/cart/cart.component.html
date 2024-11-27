@@ -7,7 +7,30 @@
   }
 </ul>
 
-<input #name>
+<!-- <input #name>
 <input #price>
 <input #quantity>
-<button (click)="add(name.value, +price.value, +quantity.value)">Add</button>
+<button (click)="add(name.value, +price.value, +quantity.value)">Add</button> -->
+
+<form (ngSubmit)="login()" [formGroup]="loginForm">
+  <div>
+    <label>Username</label>
+    <dsfr-form-input formControlName="username" />
+    @if (loginForm.get('username')?.dirty && loginForm.get('username')?.hasError('minlength')) {
+      <p>Le pseudo est trop court</p>
+      {{ loginForm.get('username')?.getError('minlength') | json }}
+    }
+  </div>
+  <div>
+    <label>Password</label>
+    <dsfr-form-input type="password" formControlName="password" />
+    @if (loginForm.get('password')?.dirty && loginForm.get('password')?.hasError('required')) {
+      <p>Le mot de passe est requis</p>
+    }
+
+    @if (loginForm.get('password')?.dirty && loginForm.get('password')?.hasError('forbidden')) {
+      <p>Le mot de passe est interdit {{ loginForm.get('password')?.getError('forbidden') }}</p>
+    }
+  </div>
+  <button [disabled]="loginForm.invalid">Connexion</button>
+</form>
