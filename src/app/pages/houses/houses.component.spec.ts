@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HousesComponent } from './houses.component';
 import { HousingService } from '../../services/housing.service';
 import { FakeHousingService } from '../../services/fake-housing.service';
+import { provideRouter } from '@angular/router';
+import { routes } from '../../app.routes';
 
 describe('HousesComponent', () => {
   let component: HousesComponent;
@@ -12,6 +14,7 @@ describe('HousesComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HousesComponent],
       providers: [
+        provideRouter(routes),
         { provide: HousingService, useExisting: FakeHousingService }
       ],
     })

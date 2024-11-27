@@ -2,6 +2,8 @@ import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angul
 
 import { HouseCardComponent } from './house-card.component';
 import { FakeHousingService } from '../../services/fake-housing.service';
+import { provideRouter } from '@angular/router';
+import { routes } from '../../app.routes';
 
 describe('HouseCardComponent', () => {
   let component: HouseCardComponent;
@@ -9,7 +11,8 @@ describe('HouseCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HouseCardComponent]
+      imports: [HouseCardComponent],
+      providers: [provideRouter(routes)]
     })
     .compileComponents();
 
@@ -27,7 +30,7 @@ describe('HouseCardComponent', () => {
 
   it('should console log', fakeAsync(() => {
     spyOn(console, 'log');
-    fixture.componentRef.setInput('house', { name: 'Fiorella' });
+    fixture.componentRef.setInput('house', { id: 1, name: 'Fiorella' });
     fixture.detectChanges();
     tick(1000);
 
