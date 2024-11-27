@@ -15,7 +15,7 @@
       </p>
       <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
 
-      <dsfr-button label="Acheter" />
+      <dsfr-button label="Acheter" (click)="addToCart()" />
 
       <p>{{ random() }}</p>
     </ng-content>
