@@ -11,6 +11,9 @@
           {{ house.price | tax | currency: 'EUR' }}
         </p>
         <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+        <a [routerLink]="['/annonce', house.id, 'buy']">Acheter</a>
+        <a [routerLink]="['/annonce', house.id, 'rent']">Louer</a>
+        <router-outlet />
       </div>
       <div class="fr-col-6">
         <img [src]="house.photo" [alt]="house.name" />

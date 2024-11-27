@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { HousingService } from '../../services/housing.service';
 import { delay, switchMap } from 'rxjs';
 import { House } from '../../models/house';
 import { TaxPipe } from '../../pipes/tax.pipe';
 import { CurrencyPipe } from '@angular/common';
+import { CurrentHouseService } from '../../services/current-house.service';
 
 @Component({
   selector: 'app-house',
-  imports: [TaxPipe, CurrencyPipe, RouterLink],
+  imports: [TaxPipe, CurrencyPipe, RouterLink, RouterOutlet],
   templateUrl: './house.component.html',
   styleUrl: './house.component.scss'
 })
@@ -18,7 +19,8 @@ export class HouseComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private housing: HousingService
+    private housing: HousingService,
+    private current: CurrentHouseService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class HouseComponent implements OnInit {
       delay(500)
     ).subscribe(house => {
       this.house = house
+      this.current.house.next(house)
       this.loading = false
     })
   }
