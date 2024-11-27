@@ -1,4 +1,4 @@
-import { createAction, createReducer, on, props } from '@ngrx/store';
+import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
 
 export interface AppState {
   cart: CartItem[]
@@ -12,6 +12,24 @@ export interface CartItem {
 
 export const add = createAction('Cart Add', props<CartItem>())
 export const remove = createAction('Cart Remove', props<{ name: string }>())
+
+export const quantity = createSelector(
+  (state: AppState) => state.cart,
+  (cart: CartItem[]) => {
+    let quantity = 0
+
+    for (let item of cart) {
+      quantity += item.quantity
+    }
+
+    return quantity
+  }
+)
+
+export const total = createSelector(
+  (state: AppState) => state.cart,
+  (cart: CartItem[]) => cart.reduce((p, c) => c.quantity * c.price + p, 0)
+)
 
 export const cartReducer = createReducer<CartItem[]>(
   [

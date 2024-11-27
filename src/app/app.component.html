@@ -9,10 +9,8 @@
         <nav style="display: flex; gap: 20px">
           <a [routerLink]="['/']">Accueil</a>
           <a [routerLink]="['/annonces']">Annonces</a>
-          <a [routerLink]="['/panier']">Panier</a>
+          <a [routerLink]="['/panier']">Panier ({{ quantity$ | async }} pour {{ total$ | async }} €)</a>
         </nav>
-
-        {{ cart$ | async | json }}
       </ng-template>
     </dsfr-header>
   </div>

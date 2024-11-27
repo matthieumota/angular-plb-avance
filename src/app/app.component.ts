@@ -1,22 +1,26 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { DsfrHeaderModule } from '@edugouvfr/ngx-dsfr';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState, CartItem } from './stores/cart.reducer';
+import { AppState, quantity, total } from './stores/cart.reducer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, DsfrHeaderModule, AsyncPipe, JsonPipe],
+  imports: [RouterOutlet, RouterLink, DsfrHeaderModule, AsyncPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Immobiliare';
-  cart$!: Observable<CartItem[]>
+  quantity$!: Observable<number>
+  total$!: Observable<number>
 
-  constructor(private store: Store<AppState>) {
-    this.cart$ = this.store.select('cart')
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit() {
+    this.quantity$ = this.store.select(quantity)
+    this.total$ = this.store.select(total)
   }
 }
