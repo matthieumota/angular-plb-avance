@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState, CartItem } from '../../stores/cart.reducer';
+import { add, AppState, CartItem, remove } from '../../stores/cart.reducer';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -15,5 +15,13 @@ export class CartComponent {
 
   constructor(private store: Store<AppState>) {
     this.cart$ = this.store.select('cart')
+  }
+
+  add(name: string, price: number, quantity: number) {
+    this.store.dispatch(add({ name, price, quantity }))
+  }
+
+  remove(name: string) {
+    this.store.dispatch(remove({ name }))
   }
 }

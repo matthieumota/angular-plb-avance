@@ -2,6 +2,12 @@
   @for (item of cart$ | async; track item.name) {
     <li>
       {{ item.name }} - {{ item.price }}€ x{{ item.quantity }}
+      <button (click)="remove(item.name)">Supprimer</button>
     </li>
   }
 </ul>
+
+<input #name>
+<input #price>
+<input #quantity>
+<button (click)="add(name.value, +price.value, +quantity.value)">Add</button>
